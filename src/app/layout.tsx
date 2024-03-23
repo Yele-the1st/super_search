@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import BgBeamDemo from "@/components/BgBeamDemo";
 
-const inter = Inter({ subsets: ["latin"] });
+const IBM_Plex = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: "--font-IBM_Plex",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={IBM_Plex.className}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <BgBeamDemo>{children}</BgBeamDemo>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
