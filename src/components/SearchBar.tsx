@@ -3,10 +3,10 @@
 import { Loader2, Search } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { useRef, useState, useTransition } from "react";
+import { useRef, useState, useTransition, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const SearchBar = () => {
+const SearchBarContent = () => {
   const searchParams = useSearchParams();
   const defaultQuery = searchParams.get("query") || "";
   const inputRef = useRef<HTMLInputElement>(null);
@@ -58,5 +58,11 @@ const SearchBar = () => {
     </div>
   );
 };
+
+const SearchBar = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <SearchBarContent />
+  </Suspense>
+);
 
 export default SearchBar;
