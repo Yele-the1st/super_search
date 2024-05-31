@@ -38,47 +38,47 @@ const SearchBarContent = () => {
   };
 
   return (
-    // <div className="relative w-full h-14 flex flex-col">
-    //   <div className="relative h-14 z-10 rounded-md">
-    //     <Input
-    //       disabled={isSearching}
-    //       value={query}
-    //       onChange={(e) => setQuery(e.target.value)}
-    //       onKeyDown={(e) => {
-    //         if (e.key === "Enter") {
-    //           search();
-    //         }
+    <div className="relative w-full h-14 flex flex-col">
+      <div className="relative h-14 z-10 rounded-md">
+        <Input
+          disabled={isSearching}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              search();
+            }
 
-    //         if (e.key === "Escape") {
-    //           inputRef?.current?.blur();
-    //         }
-    //       }}
-    //       ref={inputRef}
-    //       className="absolute inset-0 h-full"
-    //       placeholder=" enter your search eg: watch, ring, or necklace"
-    //     />
+            if (e.key === "Escape") {
+              inputRef?.current?.blur();
+            }
+          }}
+          ref={inputRef}
+          className="absolute inset-0 h-full"
+          placeholder=" enter your search eg: watch, ring, or necklace"
+        />
 
-    //     <Button
-    //       disabled={isSearching}
-    //       size="sm"
-    //       variant={"secondary"}
-    //       onClick={search}
-    //       className="absolute right-0 inset-y-0 h-full rounded-l-none"
-    //     >
-    //       {isSearching ? (
-    //         <Loader2 className="h-6 w-6 animate-spin" />
-    //       ) : (
-    //         <Search className="h-6 w-6" />
-    //       )}
-    //     </Button>
-    //   </div>
-    // </div>
-    <PlaceholdersAndVanishInput
-      placeholders={placeholders}
-      onChange={handleChange}
-      onSubmit={onSubmit}
-      query={query}
-    />
+        <Button
+          disabled={isSearching}
+          size="sm"
+          variant={"secondary"}
+          onClick={search}
+          className="absolute right-0 inset-y-0 h-full rounded-l-none"
+        >
+          {isSearching ? (
+            <Loader2 className="h-6 w-6 animate-spin" />
+          ) : (
+            <Search className="h-6 w-6" />
+          )}
+        </Button>
+      </div>
+    </div>
+    // <PlaceholdersAndVanishInput
+    //   placeholders={placeholders}
+    //   onChange={handleChange}
+    //   onSubmit={onSubmit}
+    //   query={query}
+    // />
   );
 };
 
