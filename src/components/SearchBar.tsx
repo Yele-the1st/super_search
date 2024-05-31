@@ -73,17 +73,11 @@ const SearchBarContent = () => {
         </Button>
       </div>
     </div>
-    // <PlaceholdersAndVanishInput
-    //   placeholders={placeholders}
-    //   onChange={handleChange}
-    //   onSubmit={onSubmit}
-    //   query={query}
-    // />
   );
 };
 
 const SearchBar = () => (
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense fallback={<div></div>}>
     <SearchBarContent />
   </Suspense>
 );
